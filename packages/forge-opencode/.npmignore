@@ -1,0 +1,9 @@
+src
+.github
+.gitignore
+tsconfig.json
+*.ts
+!*.d.ts
+bun.lockb
+node_modules
+dist

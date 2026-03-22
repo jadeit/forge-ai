@@ -1,0 +1,13 @@
+# Forge AI State File
+# Auto-managed by Forge tooling
+# DO NOT EDIT MANUALLY - Use Forge commands to update
+
+project_phase: 0
+phase_history: []
+
+features: {}
+
+context:
+  last_updated: null
+  current_task: null
+  current_sub_phase: null

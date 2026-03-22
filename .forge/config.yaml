@@ -1,0 +1,55 @@
+# Forge AI Configuration
+# Customise per project
+
+# Model tier definitions (update as models evolve)
+model_tiers:
+  high: opencode/big-pickle
+  medium: opencode/big-pickle
+  low: opencode/big-pickle
+
+# Phase-to-tier mapping
+phase_models:
+  1_plan: high
+  2_design: high
+  3_build_1_discover: medium
+  3_build_2_explore: medium
+  3_build_3_clarify: medium
+  3_build_4_approach: high
+  3_build_5_implement: medium
+  3_build_6_review: high
+  3_build_7_validate: high
+  3_build_8_summarise: low
+  4_test: medium
+  5_deploy: medium
+  6_maintain: medium
+
+# Quality thresholds
+quality:
+  test_coverage_minimum: 80
+  lint_must_pass: true
+  type_check_must_pass: true
+  security_audit_must_pass: true
+
+# Task categories
+task_categories:
+  - infrastructure
+  - backend
+  - frontend
+  - database
+  - devops
+  - documentation
+
+# Context budget (characters)
+context_budget:
+  warning_threshold: 150000
+  max_threshold: 180000
+
+# Rework thresholds
+rework:
+  max_implement_loops: 3
+  max_approach_loops: 2
+
+# Gate behaviour
+gates:
+  warn_on_prerequisite_failure: true
+  allow_override: true

@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          package-name: "@jadeit/forge-ai"
+
+  publish:
+    needs: release-please
+    runs-on: ubuntu-latest
+    if: needs.release-please.outputs.released
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: cd packages/forge-opencode && bun install
+      - run: cd packages/forge-opencode && bun run build
+      - uses: npm/publish@v4
+        with:
+          access: public
