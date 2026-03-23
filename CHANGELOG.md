@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/jadeit/forge-ai/compare/v1.0.0...v1.0.1) (2026-03-23)
+
+
+### Bug Fixes
+
+* bump version to 1.0.0 to match release ([22a608f](https://github.com/jadeit/forge-ai/commit/22a608f8a70993b6a0ab6a10f63463b666014c08))
+
 ## 1.0.0 (2026-03-23)
 
 
