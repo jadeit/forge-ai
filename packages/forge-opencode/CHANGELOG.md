@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/jadeit/forge-ai/compare/forge-ai-v1.2.1...forge-ai-v1.3.0) (2026-03-24)
+
+
+### Features
+
+* Expose forge commands as OpenCode skills and fix plugin hooks ([0a39f2a](https://github.com/jadeit/forge-ai/commit/0a39f2a7357fca09ad371c8798a265be508ed745))
+
 ## [1.2.1](https://github.com/jadeit/forge-ai/compare/forge-ai-v1.2.0...forge-ai-v1.2.1) (2026-03-24)
 
 
