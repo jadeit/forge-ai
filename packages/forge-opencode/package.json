@@ -1,6 +1,6 @@
 {
   "name": "@jadeit/forge-ai",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Forge AI - Structured AI-augmented coding methodology for OpenCode",
   "main": "dist/index.js",
   "type": "module",

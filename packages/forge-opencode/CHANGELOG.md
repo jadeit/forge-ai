@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/jadeit/forge-ai/compare/forge-ai-v1.2.0...forge-ai-v1.2.1) (2026-03-24)
+
+
+### Bug Fixes
+
+* Check per-package release_created output in manifest mode ([7ad97b2](https://github.com/jadeit/forge-ai/commit/7ad97b2))
+
 ## [1.2.0](https://github.com/jadeit/forge-ai/compare/forge-ai-v1.1.3...forge-ai-v1.2.0) (2026-03-24)
 
 
