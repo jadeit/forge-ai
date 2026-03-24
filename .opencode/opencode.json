@@ -1,5 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "opencode/big-pickle",
-  "instructions": [".forge/adapters/opencode/AGENTS.md"]
+  "instructions": [".forge/adapters/opencode/AGENTS.md"],
+  "plugin": ["@jadeit/forge-ai"],
+  "skills": {
+    "paths": ["node_modules/@jadeit/forge-ai"]
+  }
 }

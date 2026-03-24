@@ -73,15 +73,12 @@ function stripFrontmatter(content: string): string {
 }
 
 export const ForgeAI: Plugin = async ({ client }) => {
-  const injectForgeOverview = async () => {
+  const injectForgeOverview = async (sessionId: string) => {
     try {
-      const sessionId = (await client.session.list())?.data?.[0]?.id;
-      if (sessionId) {
-        await client.session.prompt({
-          path: { id: sessionId },
-          body: { parts: [{ type: "text", text: FORGE_OVERVIEW }] },
-        } as any);
-      }
+      await client.session.prompt({
+        path: { id: sessionId },
+        body: { parts: [{ type: "text", text: FORGE_OVERVIEW }] },
+      } as any);
     } catch {
     }
   };
@@ -115,8 +112,13 @@ export const ForgeAI: Plugin = async ({ client }) => {
   });
 
   return {
-    "session.created": injectForgeOverview,
-    "session.compacted": injectForgeOverview,
+    event: async ({ event }) => {
+      if (event.type === "session.created") {
+        await injectForgeOverview((event as any).properties.info.id);
+      } else if (event.type === "session.compacted") {
+        await injectForgeOverview((event as any).properties.sessionID);
+      }
+    },
     tool: {
       forge_plan: forgeTool("Plan", "forge-1-plan.md", "plan-agent.md"),
       forge_design: forgeTool("Design", "forge-2-design.md", "design-agent.md"),
