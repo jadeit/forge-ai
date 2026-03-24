@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/jadeit/forge-ai/compare/v1.1.0...v1.1.1) (2026-03-24)
+
+
+### Bug Fixes
+
+* use npm publish command instead of non-existent action ([1d09bcf](https://github.com/jadeit/forge-ai/commit/1d09bcfb9a021f0935b6bded58892b5612cfd417))
+
 ## [1.1.0](https://github.com/jadeit/forge-ai/compare/v1.0.1...v1.1.0) (2026-03-24)
 
 
