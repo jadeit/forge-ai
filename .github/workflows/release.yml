@@ -15,7 +15,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
+      release_created: ${{ steps.release.outputs.release_created || steps.release.outputs['packages/forge-opencode--release_created'] }}
     steps:
       - id: release
         uses: googleapis/release-please-action@v4
