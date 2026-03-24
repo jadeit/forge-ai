@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/jadeit/forge-ai/compare/v1.1.2...v1.1.3) (2026-03-24)
+
+
+### Bug Fixes
+
+* Relase process ([e872005](https://github.com/jadeit/forge-ai/commit/e8720053f707294e9906dc720c220d64c9c26b9f))
+
 ## [1.1.2](https://github.com/jadeit/forge-ai/compare/v1.1.1...v1.1.2) (2026-03-24)
 
 
