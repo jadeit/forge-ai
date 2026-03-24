@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/jadeit/forge-ai/compare/v1.0.1...v1.1.0) (2026-03-24)
+
+
+### Features
+
+* implement plugin hooks and custom tools for Forge AI ([587e44d](https://github.com/jadeit/forge-ai/commit/587e44d2228506131ddd5834583454269bb64efd))
+
+
+### Bug Fixes
+
+* update release workflow with correct outputs and package path ([91f1de7](https://github.com/jadeit/forge-ai/commit/91f1de74dc87a4cedca3f3a88dee248e585c4342))
+
 ## [1.0.1](https://github.com/jadeit/forge-ai/compare/v1.0.0...v1.0.1) (2026-03-23)
 
 
