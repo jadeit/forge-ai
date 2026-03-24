@@ -39,7 +39,4 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: cd packages/forge-opencode && bun install
       - run: cd packages/forge-opencode && bun run build
-      - uses: npm/publish@v4
-        with:
-          access: public
-          package: ./packages/forge-opencode
+      - run: cd packages/forge-opencode && npm publish --access public
