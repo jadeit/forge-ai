@@ -5,6 +5,8 @@ on:
     branches:
       - master
       - main
+    tags:
+      - 'forge-ai-v*'
 
 permissions:
   contents: write
@@ -13,21 +15,18 @@ permissions:
 
 jobs:
   release-please:
+    if: github.ref_type == 'branch'
     runs-on: ubuntu-latest
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created || steps.release.outputs['packages/forge-opencode--release_created'] }}
     steps:
-      - id: release
-        uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config-file: release-please-config.json
           manifest-file: release-please-manifest.json
 
   publish:
-    needs: release-please
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
-    if: ${{ needs.release-please.outputs.release_created == 'true' }}
     defaults:
       run:
         working-directory: ./packages/forge-opencode
