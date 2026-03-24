@@ -1,6 +1,6 @@
 {
   "packages": {
-    ".": {
+    "packages/forge-opencode": {
       "release-type": "node",
       "package-name": "@jadeit/forge-ai"
     }

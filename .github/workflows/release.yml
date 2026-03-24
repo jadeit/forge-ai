@@ -18,26 +18,27 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - id: release
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v4
         with:
-          path: ./packages/forge-opencode
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: node
-          package-name: "@jadeit/forge-ai"
+          config-file: release-please-config.json
+          manifest-file: release-please-manifest.json
 
   publish:
     needs: release-please
     runs-on: ubuntu-latest
     if: ${{ needs.release-please.outputs.release_created == 'true' }}
+    defaults:
+      run:
+        working-directory: ./packages/forge-opencode
     steps:
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-          path: ./packages/forge-opencode
       - run: npm ci
       - run: npm run build --if-present
 #      - run: npm test
-      - run: npm publish
+      - run: npm publish --provenance
