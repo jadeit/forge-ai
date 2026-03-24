@@ -1,8 +1,11 @@
-import { existsSync, rmSync } from "fs";
+import { existsSync, rmSync, cpSync, mkdirSync } from "fs";
 import { join } from "path";
 import { $ } from "bun";
 
-const distDir = join(import.meta.dir, "dist");
+const srcDir = import.meta.dir;
+const distDir = join(srcDir, "dist");
+
+const STATIC_DIRS = ["agents", "commands", "skills", "templates"];
 
 async function build() {
   if (existsSync(distDir)) {
@@ -12,6 +15,17 @@ async function build() {
 
   console.log("Building TypeScript...");
   await $`bunx tsc`;
+
+  console.log("Copying static files...");
+  for (const dir of STATIC_DIRS) {
+    const srcPath = join(srcDir, dir);
+    const destPath = join(distDir, dir);
+    if (existsSync(srcPath)) {
+      mkdirSync(destPath, { recursive: true });
+      cpSync(srcPath, destPath, { recursive: true });
+      console.log(`  - Copied ${dir}/`);
+    }
+  }
 
   console.log("Build complete!");
 }
