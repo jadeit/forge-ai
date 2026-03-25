@@ -1,0 +1,24 @@
+{
+  "name": "forge-ai",
+  "metadata": {
+    "description": "Forge AI Claude Code plugins — structured AI-augmented coding methodology"
+  },
+  "owner": {
+    "name": "Jade IT",
+    "email": "support@jadeit.co.za"
+  },
+  "plugins": [
+    {
+      "name": "forge-ai",
+      "description": "Structured AI-augmented coding methodology with a 6-phase SDLC: Plan, Design, Build, Test, Deploy, Maintain",
+      "source": {
+        "source": "git-subdir",
+        "url": "jadeit/forge-ai",
+        "path": "packages/forge-claude",
+        "ref": "main"
+      },
+      "category": "development",
+      "homepage": "https://github.com/jadeit/forge-ai"
+    }
+  ]
+}
