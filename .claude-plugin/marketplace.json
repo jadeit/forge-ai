@@ -15,7 +15,7 @@
         "source": "git-subdir",
         "url": "jadeit/forge-ai",
         "path": "packages/forge-claude",
-        "ref": "main"
+        "ref": "master"
       },
       "category": "development",
       "homepage": "https://github.com/jadeit/forge-ai"
