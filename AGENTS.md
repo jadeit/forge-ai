@@ -15,6 +15,14 @@ Forge AI is a structured methodology for AI-augmented coding built on 6 project 
 | `/forge-5-deploy` | Phase 5: Deployment |
 | `/forge-6-maintain` | Phase 6: Maintenance |
 
+### Utility Commands
+
+| Command | Description |
+|---------|-------------|
+| `/forge-init` | Initialize Forge in a new project |
+| `/forge-status` | Diagnose and recover from state inconsistencies |
+| `/forge-audit` | Audit methodology compliance and offer remediation |
+
 ### Feature Dev Sub-Commands (Phase 3)
 
 | Command | Description |
