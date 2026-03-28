@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/jadeit/forge-ai/compare/forge-ai-v1.4.0...forge-ai-v1.5.0) (2026-03-28)
+
+
+### Features
+
+* Add forge-audit command for methodology compliance checking ([5a3157c](https://github.com/jadeit/forge-ai/commit/5a3157cd1ddae7b4012603c8eb20a9ecd90c8abf))
+
 ## [1.3.0](https://github.com/jadeit/forge-ai/compare/forge-ai-v1.2.1...forge-ai-v1.3.0) (2026-03-24)
 
 
