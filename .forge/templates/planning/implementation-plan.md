@@ -25,22 +25,26 @@ timeline_estimate: null
 | 5     | Deploy      |                   | Phase 4      |
 | 6     | Maintain    |                   | Phase 5      |
 
-## Phase 3 Implementation Groups
+## Phase 3 Parallel Execution Groups
 
-### Group 1: Foundation
-| Task | Description | Complexity |
-|------|-------------|------------|
-|      |             |            |
+Tasks within a group have no inter-dependencies and are developed concurrently in
+separate worktrees (`feature/{slug}` branch, `.worktrees/{slug}` worktree). All
+tasks in a group merge to main before the next group starts.
 
-### Group 2: Core Features
-| Task | Description | Complexity |
-|------|-------------|------------|
-|      |             |            |
+### Group 1: Foundation (no dependencies)
+| Task | Description | Complexity | Branch |
+|------|-------------|------------|--------|
+|      |             |            |        |
 
-### Group 3: Polish
-| Task | Description | Complexity |
-|------|-------------|------------|
-|      |             |            |
+### Group 2: Core Features (depends on Group 1)
+| Task | Description | Complexity | Branch |
+|------|-------------|------------|--------|
+|      |             |            |        |
+
+### Group 3: Polish (depends on Group 2)
+| Task | Description | Complexity | Branch |
+|------|-------------|------------|--------|
+|      |             |            |        |
 
 ## Timeline Estimate
 

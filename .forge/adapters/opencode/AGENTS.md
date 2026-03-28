@@ -81,6 +81,18 @@ Check `.forge/state.yaml` for:
 
 Load **minimum context needed** for the current operation, not everything.
 
+## Git Branching Strategy
+
+Each task is developed in isolation on a dedicated branch and worktree:
+- **Branch:** `feature/{task-slug}`
+- **Worktree:** `.worktrees/{task-slug}`
+
+Tasks in the same parallel group (no inter-dependencies) are developed concurrently.
+All tasks in a group must merge to main before the next dependent group starts.
+
+Commit message format: `forge: {type} - {description}`
+Types: feat, fix, chore, docs
+
 ## Quality Gates
 
 Before considering Phase 3 features complete:

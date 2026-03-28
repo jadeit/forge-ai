@@ -38,9 +38,21 @@ Orchestrate the Feature Development lifecycle for the current task.
 
 Phase 2 must be complete. Read `.forge/state.yaml` to verify.
 
+## Parallel Execution
+
+Tasks within the same parallel group are developed concurrently:
+- Each task runs in an isolated git worktree: `.worktrees/{slug}`
+- Each task runs on a dedicated branch: `feature/{slug}`
+- All tasks in a group must complete and merge to main before the next group starts
+
+The build agent reads parallel groups from `docs/design/task-list.md` and
+orchestrates worktree creation, concurrent execution, and merge coordination
+automatically.
+
 ## Flags
 
 - `--task {slug}` - Work on a specific task
+- `--group {N}` - Work on all tasks in parallel group N concurrently
 - `--only {sub-phase}` - Run a specific sub-phase (1-8)
 
 ## Next Steps

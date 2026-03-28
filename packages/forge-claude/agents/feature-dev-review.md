@@ -19,11 +19,11 @@ Quality review using automated checks followed by AI code review.
 
 ## Automated Checks
 
-Run the project's lint, typecheck, and security audit commands. Required thresholds from `.forge/config.yaml`:
+Run the project's lint, typecheck, security audit, and SAST commands. Required thresholds from `.forge/config.yaml`:
 - Test coverage minimum: 80%
 - Lint must pass
 - Type check must pass
-- Security audit must pass
+- Security audit must pass (dependency CVEs + semgrep SAST)
 
 ## AI Code Review
 

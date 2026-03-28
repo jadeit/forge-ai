@@ -23,6 +23,17 @@ tools:
 
 Build the feature following the validated approach.
 
+## Pre-flight Check
+
+Verify you are working in the correct branch and worktree before writing any code:
+
+```bash
+git branch --show-current   # must match feature/{task-slug}
+pwd                          # must be inside .worktrees/{task-slug}
+```
+
+If not, stop and alert the build agent to set up the worktree first.
+
 ## Load Skills
 
 Use these skills:

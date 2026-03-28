@@ -29,6 +29,7 @@ quality:
   lint_must_pass: true
   type_check_must_pass: true
   security_audit_must_pass: true
+  semgrep_must_pass: true
 
 # Task categories
 task_categories:

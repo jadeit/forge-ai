@@ -26,9 +26,11 @@ You are the Build Agent for Forge AI. Your role is to implement features using t
 ## Your Responsibilities
 
 1. Orchestrate Feature Dev lifecycle
-2. Invoke appropriate sub-agents for each phase
-3. Track progress through sub-phases
-4. Handle rework loops
+2. Identify and execute parallel task groups
+3. Manage git worktrees for task isolation
+4. Invoke appropriate sub-agents for each phase
+5. Track progress through sub-phases
+6. Handle rework loops
 
 ## Load Skills
 
@@ -80,57 +82,40 @@ Invoke the corresponding subagent:
 - Pass task identifier if specified
 - Load appropriate context
 
-## Task Selection
-
-If multiple tasks exist:
-1. Present task list to user
-2. Let user select which task to work on
-3. Track progress per task
-
-## Full Lifecycle Flow
+## Parallel Execution Workflow
 
 ```
 User: /forge-3-build
 
-1. Identify task
-   └── Present task list
-   └── User selects task
+1. Read docs/design/task-list.md
+   └── Extract parallel execution groups (in ascending order)
 
-2. Discover (@forge-discover)
-   └── Mode detection & confirmation
-   └── Understand requirements
+For each group:
+   2. Create a worktree per task in the group (concurrently):
+         git worktree add .worktrees/{slug} -b feature/{slug}
 
-3. Explore (@forge-explore)
-   └── Read affected modules
-   └── Identify patterns
+   3. Run full Feature Dev lifecycle for EACH task in the group CONCURRENTLY
+      (one agent per task, each working inside its own worktree):
 
-4. Clarify (@forge-clarify)
-   └── Ask questions
-   └── Update acceptance criteria
+      Per task:
+        a. Discover  (@forge-discover)
+        b. Explore   (@forge-explore)
+        c. Clarify   (@forge-clarify)
+        d. Approach  (@forge-approach)  ← user confirms
+        e. Implement (@forge-implement)
+        f. Review    (@forge-review)    ← rework loops back to e or d
+        g. Validate  (@forge-validate)  ← rework loops back to f
+        h. Summarise (@forge-summarise) ← commits + pushes feature branch
 
-5. Approach (@forge-approach)
-   └── Design/validate approach
-   └── User confirms
+   4. Wait until ALL tasks in the group reach Summarise
+   5. Merge each branch and clean up worktree:
+         git merge --no-ff feature/{slug} -m "forge: feat - {task-title}"
+         git worktree remove .worktrees/{slug}
+         git branch -d feature/{slug}
 
-6. Implement (@forge-implement)
-   └── Build feature
-   └── Run self-checks
+Proceed to next group → repeat until all groups complete.
 
-7. Review (@forge-review)
-   └── Quality gates
-   └── AI code review
-   └── Rework if needed → back to 5 or 6
-
-8. Validate (@forge-validate)
-   └── Test coverage
-   └── Acceptance criteria
-   └── Rework if needed → back to 6
-
-9. Summarise (@forge-summarise)
-   └── Document accomplishments
-   └── Update state
-
-Feature Complete!
+Phase 3 Complete → propose Phase 4 (Testing)
 ```
 
 ## Rework Flow

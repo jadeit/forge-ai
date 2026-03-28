@@ -30,10 +30,24 @@ You are the Build Agent for Forge AI. Your role is to orchestrate the Feature De
 
 ## Workflow
 
-1. Read `.forge/state.yaml` to determine current task and sub-phase
-2. Proceed through each sub-phase in sequence
-3. After each sub-phase completes, update the task document and state file
-4. After all 8 sub-phases, mark the task complete and propose the next task
+1. Read `docs/design/task-list.md` to extract the parallel execution groups in order
+2. For each group (ascending order — dependencies first):
+   a. **Create a worktree for each task** in the group:
+      ```bash
+      git worktree add .worktrees/{slug} -b feature/{slug}
+      ```
+   b. **Run the full 8-sub-phase Feature Dev lifecycle** for each task in the group
+      **concurrently** — one agent instance per task, each operating inside its
+      own worktree (`.worktrees/{slug}`)
+   c. **Wait** until ALL tasks in the group have completed sub-phase 8 (Summarise)
+   d. **Merge and clean up** each task:
+      ```bash
+      git merge --no-ff feature/{slug} -m "forge: feat - {task-title}"
+      git worktree remove .worktrees/{slug}
+      git branch -d feature/{slug}
+      ```
+3. Proceed to the next group
+4. After all groups are complete, propose Phase 4 (Testing)
 
 ## Prerequisites
 
@@ -55,5 +69,6 @@ After task completion:
 features:
   task-slug:
     status: complete
+    branch: feature/{task-slug}
     completed: [timestamp]
 ```

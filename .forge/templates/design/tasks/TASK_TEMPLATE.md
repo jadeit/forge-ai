@@ -7,6 +7,9 @@ categories:
   - backend
 affected_modules: []
 dependencies: []
+parallel_group: null
+branch: feature/{slug}
+worktree: .worktrees/{slug}
 acceptance_criteria: []
 created: null
 last_updated: null

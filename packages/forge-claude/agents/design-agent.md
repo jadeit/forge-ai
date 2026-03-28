@@ -78,11 +78,31 @@ And these sections:
 | Medium | 1-3 days |
 | Large | 3-5 days |
 
+## Parallel Groups
+
+After defining all tasks, analyse the dependency graph and assign each task to a parallel execution group:
+
+- **Group 1** — tasks with no dependencies (can start immediately)
+- **Group 2** — tasks that depend only on Group 1 tasks
+- **Group N** — tasks that depend on Group N-1 tasks
+
+Tasks within the same group have no inter-dependencies and will be developed concurrently, each in its own branch and worktree.
+
+For every task document, set in the frontmatter:
+```yaml
+parallel_group: 1          # the group number
+branch: feature/{slug}     # dedicated branch
+worktree: .worktrees/{slug} # isolated worktree path
+```
+
+Add the Parallel Execution Groups table to `docs/design/task-list.md`.
+
 ## Constraints
 
 **DO:**
 - Include illustrative code snippets
 - Apply SOLID principles in design decisions
+- Assign every task a branch, worktree, and parallel group
 
 **DO NOT:**
 - Create executable code

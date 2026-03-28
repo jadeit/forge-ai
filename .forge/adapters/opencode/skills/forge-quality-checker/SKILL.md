@@ -84,9 +84,12 @@ pip-audit
 
 # Docker
 trivy image [image-name]
+
+# SAST (all projects)
+semgrep --config=auto --error .
 ```
 
-**Gate:** Must pass (no critical/high vulnerabilities, or all acknowledged)
+**Gate:** Must pass (no critical/high vulnerabilities, or all acknowledged; no semgrep findings unless suppressed with `# nosemgrep`)
 
 ### 4. Tests
 

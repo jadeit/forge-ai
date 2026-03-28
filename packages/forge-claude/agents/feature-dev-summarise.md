@@ -44,7 +44,19 @@ Brief description of the feature and its purpose.
 ### Next Steps
 ```
 
-### 3. Update Task Frontmatter
+### 3. Commit and Push Feature Branch
+
+After updating the task document, commit all changes to the feature branch and push:
+
+```bash
+git add -A
+git commit -m "forge: feat - {task-title}"
+git push -u origin feature/{task-slug}
+```
+
+Signal readiness to the build agent for merge coordination.
+
+### 4. Update Task Frontmatter
 
 ```yaml
 ---

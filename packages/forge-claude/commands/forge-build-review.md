@@ -38,6 +38,9 @@ npm run typecheck
 
 # 3. Security Audit
 npm audit
+
+# 4. Static Analysis (SAST)
+semgrep --config=auto --error .
 ```
 
 ### Required Thresholds (from `.forge/config.yaml`):

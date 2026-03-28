@@ -88,6 +88,18 @@ Brief description of the feature and its purpose.
 4. Documentation updates
 ```
 
+## Git: Commit and Push
+
+After updating the task document, commit all changes to the feature branch and push:
+
+```bash
+git add -A
+git commit -m "forge: feat - {task-title}"
+git push -u origin feature/{task-slug}
+```
+
+Signal readiness to the build agent for merge coordination.
+
 ## Final Task Document Update
 
 ### Update Frontmatter

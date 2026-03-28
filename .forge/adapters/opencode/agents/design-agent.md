@@ -148,6 +148,25 @@ For each significant decision, document:
 **Negative:** ...
 ```
 
+## Parallel Groups
+
+After defining all tasks, analyse the dependency graph and assign each task to a parallel execution group:
+
+- **Group 1** — tasks with no dependencies (can start immediately)
+- **Group 2** — tasks that depend only on Group 1 tasks
+- **Group N** — tasks that depend on Group N-1 tasks
+
+Tasks within the same group have no inter-dependencies and will be developed concurrently, each in its own branch and worktree.
+
+For every task document, set in the frontmatter:
+```yaml
+parallel_group: 1           # the group number
+branch: feature/{slug}      # dedicated branch
+worktree: .worktrees/{slug} # isolated worktree path
+```
+
+Add the Parallel Execution Groups table to `docs/design/task-list.md`.
+
 ## Constraints
 
 **DO:**
@@ -155,6 +174,7 @@ For each significant decision, document:
 - ✓ Use SOLID principles
 - ✓ Follow language-specific conventions
 - ✓ Document design rationale
+- ✓ Assign every task a branch, worktree, and parallel group
 
 **DON'T:**
 - ✗ Create executable code
@@ -168,13 +188,15 @@ Before completing Phase 2, verify:
 - [ ] `docs/design/design-decisions.md` exists with at least 1 decision
 - [ ] `docs/design/task-list.md` exists with:
   - [ ] Summary table
-  - [ ] Tasks organized by category
+  - [ ] Tasks organized by category with Branch and Group columns
   - [ ] Dependencies identified
+  - [ ] Parallel Execution Groups table
 
 - [ ] For each task document:
   - [ ] Frontmatter with all required fields
   - [ ] Valid status, mode, complexity values
   - [ ] Categories from configured list
+  - [ ] `branch`, `worktree`, and `parallel_group` set
   - [ ] Summary section with objective
   - [ ] Acceptance criteria (testable)
   - [ ] Implementation detail section
