@@ -71,12 +71,19 @@ Read template: `.forge/templates/planning/technology-and-architecture.md` (if it
 
 Create: `docs/planning/technology-and-architecture.md`
 
+**Before writing, research using web search:**
+- Current best-in-class frameworks and libraries for the project domain
+- Managed services / SaaS vs building custom (evaluate build / buy / use)
+- Maintenance status, community adoption, and recent activity of candidates
+
 **Content:**
+- Technology Research (options evaluated, build/buy/use decisions)
 - C4 Model architecture diagram (use Mermaid)
-- Technology stack table
+- Technology stack table with rationale
 - Infrastructure overview
 - System components
 - Non-functional requirements
+- 12-Factor App Compliance checklist
 
 ## Constraints
 
@@ -85,6 +92,8 @@ Create: `docs/planning/technology-and-architecture.md`
 - Use Markdown with YAML frontmatter
 - Include illustrative code snippets
 - Apply C4 Model approach
+- Research technologies via web search before choosing them
+- Apply 12-factor app principles to all architecture decisions
 
 **DO NOT:**
 - Create executable code

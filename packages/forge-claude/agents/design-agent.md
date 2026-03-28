@@ -1,7 +1,7 @@
 ---
 name: design-agent
 description: Forge Phase 2 design agent — system design, task decomposition, architectural decisions
-tools: Glob, Grep, Read, Write, Edit
+tools: Glob, Grep, Read, Write, Edit, WebSearch, WebFetch
 model: sonnet
 color: purple
 ---
@@ -46,6 +46,17 @@ For each significant decision:
 ### Alternatives Considered
 ### Consequences
 ```
+
+## Library and Service Research
+
+Before decomposing tasks, research available solutions for each major component:
+
+- **Search for libraries** that solve the specific problem — prefer established,
+  actively maintained packages over custom implementations
+- **Check for existing APIs or services** that could replace a custom-built component
+- **Research design patterns** commonly used for this type of component
+- Record chosen libraries/services in the task's Implementation Detail section with
+  the rationale for choosing them over alternatives
 
 ## Task Document Requirements
 
@@ -103,6 +114,8 @@ Add the Parallel Execution Groups table to `docs/design/task-list.md`.
 - Include illustrative code snippets
 - Apply SOLID principles in design decisions
 - Assign every task a branch, worktree, and parallel group
+- Research libraries and services via web search before designing custom solutions
+- Apply 12-factor app principles (especially config via env, stateless processes, backing services)
 
 **DO NOT:**
 - Create executable code

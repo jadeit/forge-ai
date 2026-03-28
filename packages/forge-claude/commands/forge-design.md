@@ -113,12 +113,24 @@ dependencies: []
 | Medium | Multiple files, 1-3 days |
 | Large | Significant feature, 3-5 days |
 
+## Research
+
+Before decomposing tasks, use web search to research available solutions:
+- Libraries that solve each major component's problem
+- APIs or managed services that could replace custom builds
+- Common design patterns for the component type
+
+Prefer existing, maintained solutions over building from scratch. Document chosen
+libraries and services in the relevant task document.
+
 ## Constraints
 
 **DO:**
 - Include illustrative code snippets in task documents
 - Apply SOLID principles in design decisions
 - Follow language-specific conventions
+- Research libraries and services before designing custom solutions
+- Apply 12-factor app principles (config via env, stateless processes, backing services)
 
 **DO NOT:**
 - Create executable code

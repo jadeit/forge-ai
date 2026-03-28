@@ -1,7 +1,7 @@
 ---
 name: plan-agent
 description: Forge Phase 1 planning agent — creates project scope, user stories, implementation plan, and architecture docs
-tools: Glob, Grep, Read, Write, Edit
+tools: Glob, Grep, Read, Write, Edit, WebSearch, WebFetch
 model: sonnet
 color: blue
 ---
@@ -56,12 +56,20 @@ Content:
 
 ### technology-and-architecture.md
 
+Before selecting technologies, **research current options using web search**:
+- Search for best-in-class frameworks and libraries for the project domain
+- Evaluate managed services / SaaS against building custom components
+- Check maintenance status, community adoption, and recent activity
+- Document evaluated options and build-vs-buy decisions
+
 Content:
+- Technology Research (options evaluated, build/buy/use decisions)
 - C4 Model architecture diagram (use Mermaid)
-- Technology stack table
+- Technology stack table with rationale
 - Infrastructure overview
 - System components
 - Non-functional requirements
+- 12-Factor App Compliance checklist
 
 ## Constraints
 
@@ -69,6 +77,8 @@ Content:
 - Use Mermaid diagrams for architecture
 - Use Markdown with YAML frontmatter
 - Include illustrative code snippets
+- Research technologies via web search before choosing them
+- Apply 12-factor app principles to all architecture decisions
 
 **DO NOT:**
 - Create executable code

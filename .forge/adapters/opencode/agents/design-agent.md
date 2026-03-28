@@ -13,6 +13,8 @@ tools:
   edit: true
   glob: true
   grep: true
+  websearch: true
+  webfetch: true
 model: high
 ---
 
@@ -54,6 +56,20 @@ Create these documents in `docs/design/`:
 | `design-decisions.md` | Documented design decisions |
 | `task-list.md` | Summary list of all tasks |
 | `tasks/{task-slug}.md` | One document per task |
+
+## Library and Service Research
+
+Before decomposing tasks, use web search to research available solutions for each
+major component:
+
+- **Search for libraries** that solve the specific problem — prefer established,
+  actively maintained packages over custom implementations
+- **Check for existing APIs or managed services** that could replace a custom-built
+  component
+- **Research design patterns** commonly used for this type of component
+
+Record chosen libraries/services in each task's Implementation Detail section with
+rationale for the choice over alternatives.
 
 ## Document Creation Process
 
@@ -175,6 +191,8 @@ Add the Parallel Execution Groups table to `docs/design/task-list.md`.
 - ✓ Follow language-specific conventions
 - ✓ Document design rationale
 - ✓ Assign every task a branch, worktree, and parallel group
+- ✓ Research libraries and services via web search before designing custom solutions
+- ✓ Apply 12-factor app principles (config via env, stateless processes, backing services)
 
 **DON'T:**
 - ✗ Create executable code
