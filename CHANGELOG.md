@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.4.0](https://github.com/jadeit/forge-ai/compare/forge-ai-v1.3.0...forge-ai-v1.4.0) (2026-03-28)
+
+
+### Features
+
+* Add worktree isolation and parallel execution to build methodology ([94cd4c8](https://github.com/jadeit/forge-ai/commit/94cd4c8))
+* Add web research and 12-factor app compliance to planning and design phases ([4958970](https://github.com/jadeit/forge-ai/commit/4958970))
+* Add Claude Code plugin support ([421e3aa](https://github.com/jadeit/forge-ai/commit/421e3aa))
+
+
+### Bug Fixes
+
+* Rename marketplace to jadeit to prevent cache path collision ([a5c20ce](https://github.com/jadeit/forge-ai/commit/a5c20ce))
+* Use relative path source in marketplace.json to prevent infinite cache recursion ([5225620](https://github.com/jadeit/forge-ai/commit/5225620))
+* Flatten agents/feature-dev/ subdirectory ([c68fc79](https://github.com/jadeit/forge-ai/commit/c68fc79))
+* Use master branch ref in marketplace.json ([ec66bf0](https://github.com/jadeit/forge-ai/commit/ec66bf0))
+
 ## [1.1.3](https://github.com/jadeit/forge-ai/compare/v1.1.2...v1.1.3) (2026-03-24)
 
 
